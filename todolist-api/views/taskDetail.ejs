@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de la Tâche</title>
+</head>
+<body>
+    <h1><%= task.title %></h1>
+    <p><%= task.description %></p>
+    <form action="/tasks/<%= task._id %>" method="POST">
+        <input type="text" name="title" value="<%= task.title %>" required>
+        <input type="text" name="description" value="<%= task.description %>" required>
+        <label>
+            Completée :
+            <input type="checkbox" name="completed" <%= task.completed ? 'checked' : '' %>>
+        </label>
+        <button type="submit">Mettre à jour</button>
+    </form>
+    <a href="/tasks">Retour à la liste des tâches</a>
+</body>
+</html>
